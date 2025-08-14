@@ -1,5 +1,3 @@
-from textnode import TextNode, TextType
-
 class HTMLNode():
 
     def __init__(self, tag : str = None, value : str = None, children : list = None, props : dict = None):
@@ -25,7 +23,7 @@ class HTMLNode():
 
 class LeafNode(HTMLNode):
 
-    def __init__(self, tag , value, props = None):
+    def __init__(self, tag : str, value : str, props : dict = None):
         super().__init__(tag, value, None, props)
 
     def to_html(self) -> str:
@@ -44,7 +42,7 @@ class LeafNode(HTMLNode):
 
 class ParentNode(HTMLNode):
     #note the lack of a value argument
-    def __init__(self, tag, children, props = None):
+    def __init__(self, tag : str, children : list, props : dict = None):
         super().__init__(tag, None, children, props)
 
     def to_html(self):
@@ -62,3 +60,5 @@ class ParentNode(HTMLNode):
     
     def __repr__(self):
         return f"(ParentNode) TAG: {self.tag}, VALUE: {self.value}, CHILDREN: {self.children}, PROPS: {self.props}"
+
+    
