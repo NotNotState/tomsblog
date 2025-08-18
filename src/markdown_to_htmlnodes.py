@@ -112,6 +112,16 @@ def text_to_textnodes(text: str) -> list[TextNode]:
     nodes = split_nodes_delimiter(nodes, "_", text_type=TextType.ITALIC)
     nodes = split_nodes_delimiter(nodes, "`", text_type=TextType.CODE)
     nodes = split_nodes_image(nodes)
-    # print(nodes)
     nodes = split_nodes_link(nodes)
     return nodes
+
+def markdown_to_blocks(markdown: str) -> list[str]:
+    
+    if len(markdown) == 0:
+        return []
+    blocks = []
+    partition = markdown.strip().split("\n\n")
+    for part in partition:
+        if not part.count("\n") == len(part) and part != "":
+            blocks.append(part.strip())
+    return blocks

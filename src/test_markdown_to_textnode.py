@@ -6,7 +6,7 @@ from markdown_to_htmlnodes import (
         extract_markdown_images, 
         split_nodes_image, 
         split_nodes_link,
-        text_to_textnodes
+        text_to_textnodes,
     )
 
 
@@ -233,6 +233,7 @@ class TestInlineMarkdown(unittest.TestCase):
                 TextNode("some terrible code", TextType.CODE)
             ]
         ) 
-        
+    
+
 if __name__ == "__main__":
     unittest.main()
