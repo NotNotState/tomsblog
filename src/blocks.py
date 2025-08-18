@@ -94,7 +94,7 @@ def code_to_html_node(block: str) -> HTMLNode:
 
 def quote_to_html_node(block: str) -> HTMLNode:
     items = block.split("\n")
-    clean_block = " ".join([ item.removeprefix(">") for item in items if item != ""])
+    clean_block = " ".join([ item.removeprefix(">").strip() for item in items if item != ""])
     wrapper_node = ParentNode(tag="blockquote", children=text_to_children(clean_block))
     return wrapper_node
 

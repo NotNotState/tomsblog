@@ -1,4 +1,4 @@
-from htmlnode import ParentNode, LeafNode
+from htmlnode import LeafNode
 from textnode import TextNode, TextType
 
 def text_node_to_leaf_node(text_node : TextNode) -> LeafNode:
