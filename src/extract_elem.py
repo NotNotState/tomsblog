@@ -40,7 +40,9 @@ def write_to_dest(dest_path: str, content: str):
     except FileNotFoundError as e:
         print(e)
 
+
 def generate_page(from_path: str, template_path: str, dest_path: str, basepath: str):
+    dest_path = dest_path.replace(".md", ".html")
     print(f'Generating page from {from_path} -> {dest_path}...')
     title = extract_title(from_path)
     content_md = read_from_path(from_path)
@@ -48,9 +50,9 @@ def generate_page(from_path: str, template_path: str, dest_path: str, basepath: 
     content_html = markdown_to_html_node(content_md).to_html()
     page = content_template.replace("{{ Title }}", title)
     page = page.replace("{{ Content }}", content_html)
-    page = page.replace("href='/", f"href='{basepath}")
-    dest_path = dest_path.replace(".md", ".html")
-    write_to_dest(dest_path, page)
+    page = page.replace("href=\"/", f"href=\"{basepath}")
+    page = page.replace("src=\"/", f"src=\"{basepath}")
+    write_to_dest(dest_path, page) 
     
 
 def generate_pages_recursive(dir_path_content: str, template_path: str, dest_dir_path: str, basepath: str):
