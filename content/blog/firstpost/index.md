@@ -1,8 +1,10 @@
-# Why Glorfindel is More Impressive than Legolas
+# First Post, used as proof of concept
 
 [< Back Home](/)
 
-![Glorfindel image](/images/glorfindel.png)
+![Rivendell image](/images/rivendell.png)
+
+## AI Generated Lord of the Rings Markdown to test conversion to HTML
 
 > "The deeds of Glorfindel shine bright as the morning sun, whilst the feats of others are as the flickering of stars in the night sky."
 

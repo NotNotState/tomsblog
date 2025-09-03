@@ -2,8 +2,6 @@
 
 [< Back Home](/)
 
-Give me a call anytime to chat about Tolkien!
+Link to el [Github](https://github.com/NotNotState)
 
-`555-555-5555`
-
-**"Váya márië."**
+Link to el [LinkedIn](https://www.linkedin.com/in/hegarty-thomas/)
