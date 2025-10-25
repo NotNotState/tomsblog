@@ -15,8 +15,8 @@ Here's the deal, **This is a placeholder until I can get settled on a format**.
 ## Reasons for this "blog"
 
 - No one is reading a 2 page CV, so I'll link potential employers here if they desire more info
-- Force myself to log progress/thoughts each week
-- Wanted to build a Markdown to HTML parser from scratch
+- Log thoughs on personal projects, and what i've learned/been up to...
+- Wanted to build a Markdown to HTML parser from scratch, so here we are
 
 Want to get in touch? [Contact me here](/contact).
 
