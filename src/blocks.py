@@ -74,7 +74,8 @@ def text_to_children(text: str) -> list[HTMLNode]:
 def paragraph_to_html_node(block: str) -> HTMLNode:
     return ParentNode(tag= "p", children=text_to_children(block))
 
-def heading_to_html_node(block: str) -> HTMLNode:
+def heading_to_html_node(block: str, props: dict = None) -> HTMLNode:
+    # modify to add a is_first flag which will add props: {"class": "center-title"}
     idx = 0
     while block[idx] == "#":
         idx += 1
@@ -82,7 +83,7 @@ def heading_to_html_node(block: str) -> HTMLNode:
         raise ValueError(f"invalid heading level: {idx}")
     block = block[idx + 1 : ]
     tag = "h" + str(idx)
-    return ParentNode(tag = tag, children=text_to_children(block))
+    return ParentNode(tag = tag, children=text_to_children(block), props=props)
 
 def code_to_html_node(block: str) -> HTMLNode:
     if not block.startswith("```") or not block.endswith("```"):
@@ -115,7 +116,7 @@ def ol_to_html_node(block: str) -> HTMLNode:
 def markdown_to_html_node(markdown: str) -> HTMLNode:
     root_html_node = ParentNode(tag = "div", children=[])
     blocks = markdown_to_blocks(markdown=markdown)
-    
+    header_count = 0
     for block in blocks:
         
         block_t: BlockType = block_to_block_type(block=block)
@@ -124,7 +125,11 @@ def markdown_to_html_node(markdown: str) -> HTMLNode:
             case BlockType.PARAGRAPH:
                 root_html_node.children.append(paragraph_to_html_node(block))
             case BlockType.HEADING:
-                root_html_node.children.append(heading_to_html_node(block))
+                if header_count == 0:
+                   root_html_node.children.append(heading_to_html_node(block, {"class":"center-title"})) 
+                else:
+                    root_html_node.children.append(heading_to_html_node(block))
+                header_count+=1
             case BlockType.CODE:
                 root_html_node.children.append(code_to_html_node(block))
             case BlockType.QUOTE:
